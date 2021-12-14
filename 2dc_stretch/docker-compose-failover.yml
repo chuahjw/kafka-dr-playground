@@ -1,0 +1,65 @@
+---
+version: '2'
+services:
+  zookeeper1-dc1:
+    image: confluentinc/cp-zookeeper:6.2.1
+    hostname: zookeeper1-dc1
+    container_name: zookeeper1-dc1
+    networks:
+      - n1
+    ports:
+      - "2181:2181"
+      - "9111:9111"
+    environment:
+      ZOOKEEPER_SERVER_ID: 1
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+      #ZOOKEEPER_SERVERS: zookeeper1-dc1:2888:3888;zookeeper2-dc1:2888:3888;zookeeper3-dc1:2888:3888;zookeeper4-dc2:2888:3888;zookeeper5-dc2:2888:3888;zookeeper6-dc2:2888:3888
+      ZOOKEEPER_SERVERS: zookeeper1-dc1:2888:3888;zookeeper2-dc1:2888:3888;zookeeper3-dc1:2888:3888
+      KAFKA_OPTS: "-Dzookeeper.4lw.commands.whitelist=*"
+      #ZOOKEEPER_GROUPS: 1:2:3;4:5:6
+      KAFKA_JMX_PORT: 9111
+      KAFKA_JMX_HOSTNAME: 127.0.0.1
+    cap_add:
+      - NET_ADMIN
+
+  zookeeper2-dc1:
+    image: confluentinc/cp-zookeeper:6.2.1
+    hostname: zookeeper2-dc1
+    container_name: zookeeper2-dc1
+    networks:
+      - n1
+    ports:
+      - "2182:2182"
+    environment:
+      ZOOKEEPER_SERVER_ID: 2
+      ZOOKEEPER_CLIENT_PORT: 2182
+      ZOOKEEPER_TICK_TIME: 2000
+      #ZOOKEEPER_SERVERS: zookeeper1-dc1:2888:3888;zookeeper2-dc1:2888:3888;zookeeper3-dc1:2888:3888;zookeeper4-dc2:2888:3888;zookeeper5-dc2:2888:3888;zookeeper6-dc2:2888:3888
+      ZOOKEEPER_SERVERS: zookeeper1-dc1:2888:3888;zookeeper2-dc1:2888:3888;zookeeper3-dc1:2888:3888
+      KAFKA_OPTS: "-Dzookeeper.4lw.commands.whitelist=*"
+      #ZOOKEEPER_GROUPS: 1:2:3;4:5:6
+    cap_add:
+      - NET_ADMIN
+
+  zookeeper3-dc1:
+    image: confluentinc/cp-zookeeper:6.2.1
+    hostname: zookeeper3-dc1
+    container_name: zookeeper3-dc1
+    networks:
+      - n1
+    ports:
+      - "2183:2183"
+    environment:
+      ZOOKEEPER_SERVER_ID: 3
+      ZOOKEEPER_CLIENT_PORT: 2183
+      ZOOKEEPER_TICK_TIME: 2000
+      #ZOOKEEPER_SERVERS: zookeeper1-dc1:2888:3888;zookeeper2-dc1:2888:3888;zookeeper3-dc1:2888:3888;zookeeper4-dc2:2888:3888;zookeeper5-dc2:2888:3888;zookeeper6-dc2:2888:3888
+      ZOOKEEPER_SERVERS: zookeeper1-dc1:2888:3888;zookeeper2-dc1:2888:3888;zookeeper3-dc1:2888:3888
+      KAFKA_OPTS: "-Dzookeeper.4lw.commands.whitelist=*"
+      #ZOOKEEPER_GROUPS: 1:2:3;4:5:6
+    cap_add:
+      - NET_ADMIN
+
+networks:
+  n1:
