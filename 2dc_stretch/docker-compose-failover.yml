@@ -2,7 +2,7 @@
 version: '2'
 services:
   zookeeper1-dc1:
-    image: confluentinc/cp-zookeeper:6.2.1
+    image: confluentinc/cp-zookeeper:7.1.2
     hostname: zookeeper1-dc1
     container_name: zookeeper1-dc1
     networks:
@@ -24,7 +24,7 @@ services:
       - NET_ADMIN
 
   zookeeper2-dc1:
-    image: confluentinc/cp-zookeeper:6.2.1
+    image: confluentinc/cp-zookeeper:7.1.2
     hostname: zookeeper2-dc1
     container_name: zookeeper2-dc1
     networks:
@@ -43,7 +43,7 @@ services:
       - NET_ADMIN
 
   zookeeper3-dc1:
-    image: confluentinc/cp-zookeeper:6.2.1
+    image: confluentinc/cp-zookeeper:7.1.2
     hostname: zookeeper3-dc1
     container_name: zookeeper3-dc1
     networks:
