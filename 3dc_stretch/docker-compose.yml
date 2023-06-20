@@ -2,7 +2,7 @@
 version: '2'
 services:
   zookeeper1-dc1:
-    image: confluentinc/cp-zookeeper:7.1.2
+    image: confluentinc/cp-zookeeper:7.3.3
     hostname: zookeeper1-dc1
     container_name: zookeeper1-dc1
     networks:
@@ -23,7 +23,7 @@ services:
       - NET_ADMIN
 
   zookeeper2-dc2:
-    image: confluentinc/cp-zookeeper:7.1.2
+    image: confluentinc/cp-zookeeper:7.3.3
     hostname: zookeeper2-dc2
     container_name: zookeeper2-dc2
     networks:
@@ -41,7 +41,7 @@ services:
       - NET_ADMIN
 
   zookeeper3-dc3:
-    image: confluentinc/cp-zookeeper:7.1.2
+    image: confluentinc/cp-zookeeper:7.3.3
     hostname: zookeeper3-dc3
     container_name: zookeeper3-dc3
     networks:
@@ -59,7 +59,7 @@ services:
       - NET_ADMIN
 
   broker1-dc1:
-    image: confluentinc/cp-server:7.1.2
+    image: confluentinc/cp-server:7.3.3
     hostname: broker1-dc1
     container_name: broker1-dc1
     networks:
@@ -102,7 +102,7 @@ services:
       CONFLUENT_BALANCER_ENABLE: 'true'
 
   broker2-dc1:
-    image: confluentinc/cp-server:7.1.2
+    image: confluentinc/cp-server:7.3.3
     hostname: broker2-dc1
     container_name: broker2-dc1
     networks:
@@ -145,7 +145,7 @@ services:
       CONFLUENT_BALANCER_ENABLE: 'true'
 
   broker3-dc2:
-    image: confluentinc/cp-server:7.1.2
+    image: confluentinc/cp-server:7.3.3
     hostname: broker3-dc2
     container_name: broker3-dc2
     networks:
@@ -188,7 +188,7 @@ services:
       CONFLUENT_BALANCER_ENABLE: 'true'
 
   broker4-dc2:
-    image: confluentinc/cp-server:7.1.2
+    image: confluentinc/cp-server:7.3.3
     hostname: broker4-dc2
     container_name: broker4-dc2
     networks:
@@ -231,7 +231,7 @@ services:
       CONFLUENT_BALANCER_ENABLE: 'true'
 
   broker5-dc3:
-    image: confluentinc/cp-server:7.1.2
+    image: confluentinc/cp-server:7.3.3
     hostname: broker5-dc3
     container_name: broker5-dc3
     networks:
@@ -274,7 +274,7 @@ services:
       CONFLUENT_BALANCER_ENABLE: 'true'
 
   broker6-dc3:
-    image: confluentinc/cp-server:7.1.2
+    image: confluentinc/cp-server:7.3.3
     hostname: broker6-dc3
     container_name: broker6-dc3
     networks:
@@ -317,7 +317,7 @@ services:
       CONFLUENT_BALANCER_ENABLE: 'true'
 
   schema-registry:
-    image: confluentinc/cp-schema-registry:7.1.2
+    image: confluentinc/cp-schema-registry:7.3.3
     hostname: schema-registry
     container_name: schema-registry
     networks:
@@ -338,7 +338,7 @@ services:
       SCHEMA_REGISTRY_KAFKASTORE_TOPIC_REPLICATION_FACTOR: 3
 
   control-center:
-    image: confluentinc/cp-enterprise-control-center:7.1.2
+    image: confluentinc/cp-enterprise-control-center:7.3.3
     hostname: control-center
     container_name: control-center
     networks:
